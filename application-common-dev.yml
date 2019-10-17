@@ -1,0 +1,8 @@
+server:
+  port: 7777
+  max-http-header-size: 10000000 #服务器允许的请求头的最大长度
+spring:
+  application:
+    name: AIGOU-COMMON #服务名称
+
+  

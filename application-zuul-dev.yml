@@ -1,0 +1,31 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: AIGOU-ZUUL
+
+zuul:
+  ignoredServices: '*' #只能通过路由访问，不能使用服务名访问
+  routes:
+    plat:
+      serviceId: AIGOU-PLAT
+      path: /plat/**
+    product:
+      serviceId: AIGOU-PRODUCT
+      path: /product/**
+    common:
+      serviceId: AIGOU-COMMON
+      path: /common/**
+  prefix: /services
+#zuul超时时间的设置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 6000
+ribbon:
+  ConnectTimeout: 6000
+  ReadTimeout: 6000
